@@ -43,8 +43,8 @@ class Input:
         for i in range(0,Gn):
             line = file[i]
             gp = GoldenPoint()
-            gp.x = line[0]
-            gp.y = line[1]
+            gp.x = int(line[0])
+            gp.y = int(line[1])
             GPList.append(gp)
 
         printf(GPList, "GPList: ")
@@ -55,20 +55,25 @@ class Input:
         for i in range(0,Sm):
             line = file[i]
             sp = SilverPoint()
-            sp.x = line[0]
-            sp.y = line[1]
-            sp.sc = line[2]
+            sp.x = int(line[0])
+            sp.y = int(line[1])
+            sp.sc = int(line[2])
             SPList.append(sp)
 
+        printf(len(SPList), "SPList: ")
+
+        TList = []
         for i in range(0,Tl): 
             line = file[i]
             tl = SilverPoint()
             tl.id = line[0]
-            tl.y = line[1]
-            sp.sc = line[2]
-            SPList.append(sp)
+            tl.cost = int(line[1])
+            tl.number = int(line[2])
+            TList.append(sp)
 
-        file = file[1:]
+        
+        printf(len(TList), "SPList: ")
+
         
 
        
