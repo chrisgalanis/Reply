@@ -17,6 +17,8 @@ class Tiles:
     number = 0
 
 
+
+
 class Input:
     def __init__(self):
         file = open('REPLY.txt').read()
@@ -39,47 +41,53 @@ class Input:
 
         GPList = []
        
-
         for i in range(0,Gn):
-            line = file[i]
+            line = file[i].split(' ')
             gp = GoldenPoint()
             gp.x = int(line[0])
             gp.y = int(line[1])
+            printf(gp.y,"Y: ")
             GPList.append(gp)
 
-        printf(GPList, "GPList: ")
+        # printf(GPList, "GPList: ")
 
         file = file[Gn:]
         
         SPList = []
         for i in range(0,Sm):
-            line = file[i]
+            line = file[i].split(' ')
             sp = SilverPoint()
             sp.x = int(line[0])
             sp.y = int(line[1])
             sp.sc = int(line[2])
             SPList.append(sp)
-
-        printf(len(SPList), "SPList: ")
-
-        TList = []
+        
+        file = file[Sm:]
+        # printf(len(SPList), "SPList: ")
+        AllTiles = {}
         for i in range(0,Tl): 
-            line = file[i]
-            tl = SilverPoint()
+            line = file[i].split(' ')
+            tl = Tiles()
             tl.id = line[0]
             tl.cost = int(line[1])
             tl.number = int(line[2])
-            TList.append(sp)
+            AllTiles[tl.id] = tl
 
-        
-        printf(len(TList), "SPList: ")
+
+        for key, value in AllTiles.items():
+            print(key, "->", value.number)
 
         
 
        
+def turnTiles():
+    DR = ['9','D','B','F']
+    DL = ['A','E', 'B', 'F']
+    UR = ['5','D','7','F']
+    UL = ['6', 'E', '7', 'F']
 
-
-
+    
+    
 if __name__ == "__main__":
     input = Input()
     
